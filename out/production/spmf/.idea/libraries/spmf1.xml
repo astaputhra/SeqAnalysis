@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="spmf1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/spmf/jfreechart-1.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/spmf/ojdbc6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/spmf/jcommon-1.0.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

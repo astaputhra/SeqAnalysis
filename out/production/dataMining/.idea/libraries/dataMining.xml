@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="dataMining">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/production/dataMining/ojdbc6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/dataMining/jcommon-1.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/production/dataMining/jfreechart-1.0.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

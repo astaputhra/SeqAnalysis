@@ -2,31 +2,31 @@ package com.project.seqAnalysis.gui;
 /*
  * Copyright (c) 2008-2015 Philippe Fournier-Viger
  *
- * This file is part of the SPMF DATA MINING SOFTWARE
- * (http://www.philippe-fournier-viger.com/spmf).
+ * This file is part of the SEQANALYSIS DATA MINING SOFTWARE
+ * (http://www.philippe-fournier-viger.com/SEQANALYSIS).
  *
- * SPMF is free software: you can redistribute it and/or modify it under the
+ * SEQANALYSIS is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation, either version 3 of the License, or (at your option) any later
  * version.
  *
- * SPMF is distributed in the hope that it will be useful, but WITHOUT ANY
+ * SEQANALYSIS is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
  * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License along with
- * SPMF. If not, see <http://www.gnu.org/licenses/>.
+ * SEQANALYSIS. If not, see <http://www.gnu.org/licenses/>.
  */
 import java.lang.reflect.Method;
 
 /**
- * This is a simple user interface to run the main algorithms in SPMF.
+ * This is a simple user interface to run the main algorithms in SEQANALYSIS.
  * 
  * @author Philippe Fournier-Viger
  */
 public class Main {
 
-    // variable for the current version of SPMF
+    // variable for the current version of SEQANALYSIS
     public static String SEQANALYSIS = "0.96r13";
     
     /**
@@ -38,8 +38,8 @@ public class Main {
      */
     public static void main(String[] args) {
     	// The following commented lines of code are to be used for debugging purposes:
-		//args = new String[]{"run", "SPADE", "C:\\Users\\ph\\Desktop\\SPMF\\test_files\\contextPrefixSpan.txt", "output.txt",  "50%", "100"};
-//C:\Users\ph\Desktop\SPMF\test_files
+		//args = new String[]{"run", "SPADE", "C:\\Users\\ph\\Desktop\\SEQANALYSIS\\test_files\\contextPrefixSpan.txt", "output.txt",  "50%", "100"};
+//C:\Users\ph\Desktop\SEQANALYSIS\test_files
 //		System.out.println("Command " + Arrays.toString(args));
         
     	// If there are command line arguments, we don't launch
@@ -56,22 +56,22 @@ public class Main {
     }
     
     /**
-     * This method process the command line arguments when the spmf.jar file is
+     * This method process the command line arguments when the SEQANALYSIS.jar file is
      * called from the command line.
      *
      * @param args command line arguments.
      */
     public static void processCommandLineArguments(String[] args) {
-        //java -Xmx1024m -jar spmfGUIv090b.jar run PrefixSpan /home/ph/Bureau/contextPrefixSpan.txt /home/ph/Bureau/test3.txt 60%
-        //java -Xmx1024m -jar spmfGUIv090b.jar run PrefixSpan contextPrefixSpan.txt test3.txt 60%
-//		System.out.println(" \n\n-- SPMF version " + SEQANALYSIS + " --\n\n");
+        //java -Xmx1024m -jar SEQANALYSISGUIv090b.jar run PrefixSpan /home/ph/Bureau/contextPrefixSpan.txt /home/ph/Bureau/test3.txt 60%
+        //java -Xmx1024m -jar SEQANALYSISGUIv090b.jar run PrefixSpan contextPrefixSpan.txt test3.txt 60%
+//		System.out.println(" \n\n-- SEQANALYSIS version " + SEQANALYSIS + " --\n\n");
 
         // "version" --> show the current version
         if ("version".equals(args[0])) {
-            System.out.println(" \n-- SPMF version " + SEQANALYSIS + " --\n");
+            System.out.println(" \n-- SEQANALYSIS version " + SEQANALYSIS + " --\n");
         } // "help" --> show the link to read the documentation
         else if ("help".equals(args[0])) {
-            System.out.println("\n\nFor help, please check the documentation section of the SPMF website: http://philippe-fournier-viger.com/spmf/ \n\n");
+            System.out.println("\n\nFor help, please check the documentation section of the SEQANALYSIS website: http://philippe-fournier-viger.com/SEQANALYSIS/ \n\n");
         } //"run" -->  the user wants to run an algorithm
         else if ("run".equals(args[0])) {
             // We get the parameters :
@@ -99,7 +99,7 @@ public class Main {
             String testName = args[1];
             try {
                 @SuppressWarnings("rawtypes")
-				Class testClass = Class.forName("ca.pfv.spmf.tests." + testName);
+				Class testClass = Class.forName("ca.pfv.SEQANALYSIS.tests." + testName);
                 @SuppressWarnings("unchecked")
 				Method mainMethod = testClass.getMethod("main", String[].class);
                 String[] params = null;
@@ -110,7 +110,7 @@ public class Main {
 
         } else {
             // if any other commands that we don't recognize, we show this:
-            System.out.println("\n\n Command not recognized.\n For help, please check the documentation section of the SPMF website: http://philippe-fournier-viger.com/spmf/ \n \n");
+            System.out.println("\n\n Command not recognized.\n For help, please check the documentation section of the SEQANALYSIS website: http://philippe-fournier-viger.com/SEQANALYSIS/ \n \n");
         }
     }
 

@@ -15,6 +15,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.candidatePatternsGeneration.CandidateGenerator;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.Itemset;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.Sequence;
@@ -53,7 +55,7 @@ import com.project.seqAnalysis.tools.MemoryLogger;
  *
  * @author agomariz
  */
-public class AlgoCMSPADE {
+public class AlgoCMSPADE extends AbstractAlogrithamClass {
 
     private int intersectionCounter = 0;
     /**
@@ -386,9 +388,6 @@ public class AlgoCMSPADE {
         return intersectionCounter;
     }
 
-    public int getNumberOfFrequentPatterns() {
-        return numberOfFrequentPatterns;
-    }
 
     /**
      * It gets the time spent by the algoritm in its execution.
@@ -489,6 +488,11 @@ public class AlgoCMSPADE {
                     }
                 }
             }
+            List<GraphOutput> graphOutputs = new ArrayList<>();
+            this.setAlgorithmName(algorithmName);
+            saver.insert(this);
+            saver.selectMethod(graphOutputs);
+
 
             numberOfFrequentPatterns = frequentPatternEnumeration.getFrequentPatterns();// check the memory usage for statistics
             MemoryLogger.getInstance().checkMemory();

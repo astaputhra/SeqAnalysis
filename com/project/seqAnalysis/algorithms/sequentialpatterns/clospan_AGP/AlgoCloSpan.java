@@ -23,6 +23,8 @@ import java.util.BitSet;
 import java.util.List;
 import java.util.Map;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.Item;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.PseudoSequence;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.PseudoSequenceDatabase;
@@ -33,7 +35,6 @@ import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.p
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.savers.Saver;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.savers.SaverIntoFile;
 import com.project.seqAnalysis.tools.MemoryLogger;
-import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.savers.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.savers.SaverIntoMemory;
 
 /**
@@ -46,7 +47,8 @@ import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.savers.
  * 
  * @author Antonio Gomariz Peñalver 
  */
-public class AlgoCloSpan {
+public class AlgoCloSpan extends AbstractAlogrithamClass {
+
 
     protected double minSupRelative;
     protected double minSupAbsolute;
@@ -261,10 +263,7 @@ public class AlgoCloSpan {
         sb.append("\n===================================================\n");
         return sb.toString();
     }
-    
-    public int getNumberOfFrequentPatterns() {
-        return numberOfFrequentPatterns;
-    }
+
 
     /**
      * It gets the total time spent by the algoritm in its execution.
@@ -325,37 +324,5 @@ public class AlgoCloSpan {
             saver = null;
         }
         abstractionCreator = null;
-    }
-
-    public double getMinSupRelative() {
-        return minSupRelative;
-    }
-
-    public void setMinSupRelative(double minSupRelative) {
-        this.minSupRelative = minSupRelative;
-    }
-
-    public long getOverallStart() {
-        return overallStart;
-    }
-
-    public void setOverallStart(long overallStart) {
-        this.overallStart = overallStart;
-    }
-
-    public long getOverallEnd() {
-        return overallEnd;
-    }
-
-    public void setOverallEnd(long overallEnd) {
-        this.overallEnd = overallEnd;
-    }
-
-    public String getAlgorithmName() {
-        return algorithmName;
-    }
-
-    public void setAlgorithmName(String algorithmName) {
-        this.algorithmName = algorithmName;
     }
 }

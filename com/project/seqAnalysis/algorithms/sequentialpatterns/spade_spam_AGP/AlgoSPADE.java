@@ -12,6 +12,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.candidatePatternsGeneration.CandidateGenerator;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.creators.AbstractionCreator;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.database.SequenceDatabase;
@@ -46,10 +48,9 @@ import com.project.seqAnalysis.tools.MemoryLogger;
  *
  * @author agomariz
  */
-public class AlgoSPADE {
+public class AlgoSPADE extends AbstractAlogrithamClass {
 
     public long joinCount; // PFV 2013
-    
     /**
      * the minimum support threshold
      */
@@ -145,6 +146,13 @@ public class AlgoSPADE {
         end = System.currentTimeMillis();
         //Search for frequent patterns: Finished
         saver.finish();
+
+
+        List<GraphOutput> graphOutputs = new ArrayList<>();
+        this.setAlgorithmName(algorithmName);
+        saver.insert(this);
+        saver.selectMethod(graphOutputs);
+
     }
     
     /**
@@ -341,9 +349,6 @@ public class AlgoSPADE {
         return sb.toString();
     }
 
-    public int getNumberOfFrequentPatterns() {
-        return numberOfFrequentPatterns;
-    }
 
     /**
      * It gets the time spent by the algoritm in its execution.
@@ -353,18 +358,6 @@ public class AlgoSPADE {
         return (end - start);
     }
 
-    /**
-     * It gets the minimum relative support, i.e. the minimum number of database
-     * sequences where a pattern has to appear
-     * @return 
-     */
-    public double getMinSupRelative() {
-        return minSupRelative;
-    }
-
-    /**
-     * It clears all the attributes of AlgoPrefixSpan class
-     */
     public void clear() {
         frequentItems.clear();
         abstractionCreator = null;

@@ -1,6 +1,10 @@
 package com.project.seqAnalysis.algorithms.sequentialpatterns.clasp_AGP.savers;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clasp_AGP.dataStructures.patterns.Pattern;
+
+import java.util.List;
 
 /**
  * This is the definition of a interface in order to decide where the user wants
@@ -35,4 +39,9 @@ public interface Saver {
     public void clear();
 
     public String print();
+
+    public void insert(AbstractAlogrithamClass algoCloSpan);
+
+    public List<GraphOutput> selectMethod(List<GraphOutput> graphOutputs);
+
 }

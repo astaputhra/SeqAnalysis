@@ -7,6 +7,10 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.DBConnections;
+import com.project.seqAnalysis.algorithms.GraphOutput;
+import com.project.seqAnalysis.algorithms.LineChart_AWT;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.AlgoCloSpan;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.patterns.Pattern;
 import org.jfree.ui.RefineryUtilities;
@@ -102,7 +106,7 @@ public class SaverIntoFile  implements Saver {
     }
 
     @Override
-    public void insert(AlgoCloSpan algoCloSpan) {
+    public void insert(AbstractAlogrithamClass algoCloSpan) {
         dbConnections.insert(algoCloSpan);
     }
 

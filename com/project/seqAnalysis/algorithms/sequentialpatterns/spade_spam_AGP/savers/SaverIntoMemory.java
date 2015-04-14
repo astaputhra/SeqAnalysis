@@ -1,7 +1,10 @@
 package com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.savers;
 
 import java.util.Collection;
+import java.util.List;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.Sequences;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.patterns.Pattern;
 
@@ -99,5 +102,15 @@ public class SaverIntoMemory implements Saver{
             this.savePattern(pattern);
         }
     }
-    
+
+    @Override
+    public void insert(AbstractAlogrithamClass algoCloSpan) {
+
+    }
+
+    @Override
+    public List<GraphOutput> selectMethod(List<GraphOutput> graphOutputs) {
+        return null;
+    }
+
 }

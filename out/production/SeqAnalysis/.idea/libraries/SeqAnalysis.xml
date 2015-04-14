@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="SeqAnalysis">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jcommon-1.0.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/ojdbc6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/jfreechart-1.0.9.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

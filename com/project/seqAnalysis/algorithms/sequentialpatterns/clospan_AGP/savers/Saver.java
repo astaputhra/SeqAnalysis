@@ -1,5 +1,7 @@
 package com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.savers;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.AlgoCloSpan;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.patterns.Pattern;
 
@@ -39,7 +41,7 @@ public interface Saver {
 
     public String print();
 
-    public void insert(AlgoCloSpan algoCloSpan);
+    public void insert(AbstractAlogrithamClass algoCloSpan);
 
     public List<GraphOutput> selectMethod(List<GraphOutput> graphOutputs);
 

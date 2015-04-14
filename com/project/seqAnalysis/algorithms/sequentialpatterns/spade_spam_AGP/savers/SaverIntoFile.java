@@ -4,10 +4,16 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Collection;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.DBConnections;
+import com.project.seqAnalysis.algorithms.GraphOutput;
+import com.project.seqAnalysis.algorithms.LineChart_AWT;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.patterns.Pattern;
+import org.jfree.ui.RefineryUtilities;
 
 /**
  * This is an implementation of a class implementing the Saver interface. By
@@ -36,6 +42,7 @@ import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.data
 public class SaverIntoFile implements Saver {
 
     private BufferedWriter writer = null;
+    DBConnections dbConnections = new DBConnections();
     private String path = null;
     
     /**
@@ -112,5 +119,22 @@ public class SaverIntoFile implements Saver {
         for(Pattern pattern:patterns){
             this.savePattern(pattern);
         }
+    }
+
+
+    @Override
+    public void insert(AbstractAlogrithamClass algoCloSpan) {
+        dbConnections.insert(algoCloSpan);
+    }
+
+    @Override
+    public List<GraphOutput> selectMethod(List<GraphOutput> graphOutputs) {
+        dbConnections.selectMethod(graphOutputs);
+        LineChart_AWT chart = new LineChart_AWT("Sequential Pattern Mining" ,"Sequential Pattern Mining",graphOutputs);
+        chart.pack( );
+        RefineryUtilities.centerFrameOnScreen(chart);
+        chart.setVisible( true );
+
+        return graphOutputs;
     }
 }

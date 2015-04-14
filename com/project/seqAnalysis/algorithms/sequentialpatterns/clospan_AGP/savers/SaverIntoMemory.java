@@ -1,5 +1,7 @@
 package com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.savers;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.AlgoCloSpan;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.Sequences;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clospan_AGP.items.patterns.Pattern;
@@ -72,7 +74,7 @@ public class SaverIntoMemory implements Saver{
     }
 
     @Override
-    public void insert(AlgoCloSpan algoCloSpan) {
+    public void insert(AbstractAlogrithamClass algoCloSpan) {
 
     }
 

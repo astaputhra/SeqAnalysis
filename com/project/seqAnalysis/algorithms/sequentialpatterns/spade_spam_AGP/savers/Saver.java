@@ -1,7 +1,10 @@
 package com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.savers;
 
 import java.util.Collection;
+import java.util.List;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.patterns.Pattern;
 
 /**
@@ -51,6 +54,11 @@ public interface Saver {
      * @param patterns a list of patterns
      */
     public void savePatterns(Collection<Pattern> patterns);
+
+    public void insert(AbstractAlogrithamClass algoCloSpan);
+
+    public List<GraphOutput> selectMethod(List<GraphOutput> graphOutputs);
+
 
 
 }

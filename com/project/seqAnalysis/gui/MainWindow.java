@@ -2,20 +2,20 @@ package com.project.seqAnalysis.gui;
 /*
  * Copyright (c) 2008-2015 Philippe Fournier-Viger
  *
- * This file is part of the SPMF DATA MINING SOFTWARE
- * (http://www.philippe-fournier-viger.com/spmf).
+ * This file is part of the SeqAnalysis DATA MINING SOFTWARE
+ * (http://www.philippe-fournier-viger.com/SeqAnalysis).
  *
- * SPMF is free software: you can redistribute it and/or modify it under the
+ * SeqAnalysis is free software: you can redistribute it and/or modify it under the
  * terms of the GNU General Public License as published by the Free Software
  * Foundation, either version 3 of the License, or (at your option) any later
  * version.
  *
- * SPMF is distributed in the hope that it will be useful, but WITHOUT ANY
+ * SeqAnalysis is distributed in the hope that it will be useful, but WITHOUT ANY
  * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
  * A PARTICULAR PURPOSE. See the GNU General Public License for more details.
  *
  * You should have received a copy of the GNU General Public License along with
- * SPMF. If not, see <http://www.gnu.org/licenses/>.
+ * SeqAnalysis. If not, see <http://www.gnu.org/licenses/>.
  */
 import java.awt.Desktop;
 import java.awt.event.ActionEvent;
@@ -54,7 +54,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JProgressBar;
 
 /**
- * This class is the user interface of SPMF (the main Window).
+ * This class is the user interface of SeqAnalysis (the main Window).
  * It allows the user to launch single algorithms.
  * 
  * @author Philippe Fournier-Viger
@@ -119,7 +119,7 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
             }
         });
         // set the title of the window
-        setTitle("SPMF v" + Main.SEQANALYSIS);
+        setTitle("SeqAnalysis v" + Main.SEQANALYSIS);
 
         // When the user clicks the "x" the software will close.
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -133,130 +133,12 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
         // Combo box to store the list of algorithms.
         comboBox = new JComboBox<String>(new Vector<String>());
         comboBox.setMaximumRowCount(20);
-        comboBox.addItem("");
         comboBox.addItem("  ---- SEQUENTIAL PATTERN MINING ----");
         comboBox.addItem("CM-SPADE");
         comboBox.addItem("ClaSP");
         comboBox.addItem("CM-ClaSP");
         comboBox.addItem("SPADE");
         comboBox.addItem("CloSpan");
-        /*comboBox.addItem("BIDE+");
-        comboBox.addItem("BIDE+_with_strings");
-
-        comboBox.addItem("CM-SPAM");
-        comboBox.addItem("FEAT");
-        comboBox.addItem("FSGP");
-        comboBox.addItem("Fournier08-Closed+time");
-        comboBox.addItem("GoKrimp");
-        comboBox.addItem("GSP");
-        comboBox.addItem("HirateYamana");
-        comboBox.addItem("LAPIN");
-        comboBox.addItem("MaxSP");
-        comboBox.addItem("PrefixSpan");
-        comboBox.addItem("PrefixSpan_AGP");
-        comboBox.addItem("PrefixSpan_PostProcessingClosed");
-        comboBox.addItem("PrefixSpan_with_strings");
-        comboBox.addItem("SPADE_Parallelized");
-        comboBox.addItem("SPAM");
-        comboBox.addItem("SPAM_AGP");
-        comboBox.addItem("SPAM_PostProcessingClosed");
-        //comboBox.addItem("Fournier08-Closed+time+valued_items");
-        comboBox.addItem("SeqDim_(PrefixSpan+Apriori)");
-        comboBox.addItem("SeqDim_(PrefixSpan+Apriori)+time");
-        comboBox.addItem("SeqDim_(BIDE+AprioriClose)");
-        comboBox.addItem("SeqDim_(BIDE+AprioriClose)+time");
-        comboBox.addItem("SeqDim_(BIDE+Charm)");
-        comboBox.addItem("SeqDim_(BIDE+Charm)+time");
-        comboBox.addItem("TKS");
-        comboBox.addItem("TSP_nonClosed");
-        comboBox.addItem("VGEN");
-        comboBox.addItem("VMSP");
-        comboBox.addItem("  ---- SEQUENTIAL RULE MINING ----");
-        comboBox.addItem("CMRules");
-        comboBox.addItem("CMDeo");
-        comboBox.addItem("ERMiner");
-        comboBox.addItem("RuleGen");
-        comboBox.addItem("RuleGrowth");
-        comboBox.addItem("TRuleGrowth");
-        comboBox.addItem("TRuleGrowth_with_strings");
-        comboBox.addItem("TopSeqRules");
-        comboBox.addItem("TNS");
-        comboBox.addItem("  ---- ITEMSET MINING----");
-        comboBox.addItem("Apriori");
-        comboBox.addItem("Apriori_with_hash_tree");
-        comboBox.addItem("Apriori_TID");
-        comboBox.addItem("Apriori_TID_bitset");
-        comboBox.addItem("Apriori_TIDClose");
-        comboBox.addItem("AprioriClose");
-        comboBox.addItem("AprioriRare");
-        comboBox.addItem("AprioriInverse");
-        comboBox.addItem("CFPGrowth++");
-        comboBox.addItem("Charm_bitset");
-        comboBox.addItem("dCharm_bitset");
-        comboBox.addItem("Charm_MFI");
-        comboBox.addItem("DCI_Closed");
-        comboBox.addItem("DefMe");
-        comboBox.addItem("Eclat");
-        comboBox.addItem("dEclat");
-        comboBox.addItem("Eclat_bitset");
-        comboBox.addItem("dEclat_bitset");
-        comboBox.addItem("FHM");
-        comboBox.addItem("FIN");
-        comboBox.addItem("FPGrowth_itemsets");
-        comboBox.addItem("FPGrowth_itemsets_with_strings");
-        comboBox.addItem("HMine");
-        comboBox.addItem("HUI-Miner");
-        comboBox.addItem("IHUP");
-        comboBox.addItem("LCM");
-        comboBox.addItem("LCMFreq");
-//        comboBox.addItem("LCMMax");
-        comboBox.addItem("MSApriori");
-        comboBox.addItem("Pascal");
-        comboBox.addItem("PrePost");
-        comboBox.addItem("Relim");
-        comboBox.addItem("Two-Phase");
-        comboBox.addItem("UApriori");
-        comboBox.addItem("UPGrowth");
-//        comboBox.addItem("UPGrowth+");
-        comboBox.addItem("VME");
-        comboBox.addItem("Zart");
-        comboBox.addItem("  ---- ASSOCIATION RULE MINING ----");
-        comboBox.addItem("Apriori_association_rules");
-        comboBox.addItem("Closed_association_rules");
-        comboBox.addItem("FHSAR");
-        comboBox.addItem("FPGrowth_association_rules");
-        comboBox.addItem("FPGrowth_association_rules_with_lift");
-        comboBox.addItem("CFPGrowth++_association_rules");
-        comboBox.addItem("CFPGrowth++_association_rules_with_lift");
-        comboBox.addItem("IGB");
-        comboBox.addItem("Indirect_association_rules");
-        comboBox.addItem("MNR");
-        comboBox.addItem("Sporadic_association_rules");
-        comboBox.addItem("TopKRules");
-        comboBox.addItem("TNR");
-        comboBox.addItem("  ---- CLUSTERING ----");
-        comboBox.addItem("Hierarchical_clustering");
-        comboBox.addItem("DBScan");
-        comboBox.addItem("OPTICS-cluster-ordering");
-        comboBox.addItem("OPTICS-dbscan-clusters");
-        comboBox.addItem("KMeans");
-        comboBox.addItem("BisectingKMeans");
-        comboBox.addItem("TextClusterer");
-        comboBox.addItem("  ---- DATASET TOOLS ----");
-        comboBox.addItem("Calculate_stats_for_a_sequence_database");
-        comboBox.addItem("Calculate_stats_for_a_transaction_database");
-        comboBox.addItem("Convert_a_sequence_database_to_SPMF_format");
-        comboBox.addItem("Convert_a_transaction_database_to_SPMF_format");
-        comboBox.addItem("Convert_sequence_database_to_transaction_database");
-        comboBox.addItem("Convert_transaction_database_to_sequence_database");
-        comboBox.addItem("Generate_a_sequence_database");
-        comboBox.addItem("Generate_a_sequence_database_with_timestamps");
-        comboBox.addItem("Generate_a_transaction_database");
-        comboBox.addItem("Generate_utility_values_for_transaction_database");
-        comboBox.addItem("Add_consecutive_timestamps_to_sequence_database");
-        comboBox.addItem("Fix_a_transaction_database");
-*/
-        // What to do when the user choose an algorithm :
         comboBox.addItemListener(new ItemListener() {
 			@Override
 			public void itemStateChanged(ItemEvent evt) {
@@ -293,12 +175,12 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
 
             @Override
             public void mousePressed(MouseEvent arg0) {
-            	// Show the webpage of the SPMF project
-                openWebPage("http://www.philippe-fournier-viger.com/spmf/");
+            	// Show the webpage of the SeqAnalysis project
+                openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/");
             }
         });
         lblNewLabel.setIcon(new ImageIcon(MainWindow.class.getResource("boo.jpg")));
-        lblNewLabel.setBounds(12, 13, 140, 47);
+        lblNewLabel.setBounds(120, 130, 140, 47);
         contentPane.add(lblNewLabel);
 
         textFieldParam1 = new JTextField();
@@ -313,7 +195,7 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
                 askUserToChooseInputFile();
             }
         });
-        
+
         buttonInput.setBounds(430, 104, 32, 23);
         contentPane.add(buttonInput);
 
@@ -410,10 +292,10 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
                 // we open the webpage corresponding to the algorithm
                 // that is currently selected.
                 String choice = (String) comboBox.getSelectedItem();
-                openHelpWebPageForAlgorithm(choice);
+               // openHelpWebPageForAlgorithm(choice);
             }
 
-			
+
         });
         buttonExample.setBounds(642, 73, 49, 23);
         contentPane.add(buttonExample);
@@ -765,13 +647,13 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
                 setParam(textFieldParam3, "Choose window_size:", labelParam3, "(e.g. 3)");
                 setParam(textFieldParam4, "Max antecedent size (optional):", labelParam4, "(e.g. 1 items)");
                 setParam(textFieldParam5, "Max consequent size (optional):", labelParam5, "(e.g. 2 items)");
-            } else if ("Convert_a_sequence_database_to_SPMF_format".equals(algorithmName)) {
+            } else if ("Convert_a_sequence_database_to_SeqAnalysis_format".equals(algorithmName)) {
                 // show the parameters of this algorithm
                 hideAllParams();
                 setParam(textFieldParam1, "Choose input format:", labelParam1, "(e.g. CSV_INTEGER)");
                 setParam(textFieldParam2, "Choose sequence count:", labelParam2, "(e.g. 5)");
-            } //Convert_a_transaction_database_to_SPMF_format
-            else if ("Convert_a_transaction_database_to_SPMF_format".equals(algorithmName)) {
+            } //Convert_a_transaction_database_to_SeqAnalysis_format
+            else if ("Convert_a_transaction_database_to_SeqAnalysis_format".equals(algorithmName)) {
                 // show the parameters of this algorithm
                 hideAllParams();
                 setParam(textFieldParam1, "Choose input format:", labelParam1, "(e.g. CSV_INTEGER)");
@@ -835,8 +717,8 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
                 // If the name of the algorithm is not recognized:
                 if (isVisible() == false) {
                     System.out.println("There is no algorithm with this name. "
-                            + " To fix this problem, you may check the command syntax in the SPMF documentation"
-                            + " and/or verify if there is a new version of SPMF on the SPMF website.");
+                            + " To fix this problem, you may check the command syntax in the SeqAnalysis documentation"
+                            + " and/or verify if there is a new version of SeqAnalysis on the SeqAnalysis website.");
                 }
 
                 hideAllParams();
@@ -956,220 +838,220 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
      */
     private void openHelpWebPageForAlgorithm(String choice) {
 		if ("PrefixSpan".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#examplePrefixSpan");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#examplePrefixSpan");
         } else if ("HirateYamana".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example11");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example11");
         } else if ("PrefixSpan_with_strings".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#examplePrefixSpan");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#examplePrefixSpan");
         } else if ("SeqDim_(PrefixSpan+Apriori)".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#exampleMDSPM1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#exampleMDSPM1");
         } else if ("SeqDim_(BIDE+AprioriClose)".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#exampleMDSPM1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#exampleMDSPM1");
         } else if ("SeqDim_(BIDE+Charm)".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#exampleMDSPM1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#exampleMDSPM1");
         } else if ("SeqDim_(PrefixSpan+Apriori)+time".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example14");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example14");
         } else if ("SeqDim_(BIDE+AprioriClose)+time".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example14");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example14");
         } else if ("SeqDim_(BIDE+Charm)+time".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example14");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example14");
         } else if ("SPAM".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#spam");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#spam");
         } else if ("BIDE+".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#exampleBIDE");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#exampleBIDE");
         } else if ("BIDE+_with_strings".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#exampleBIDE");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#exampleBIDE");
         } else if ("RuleGrowth".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#rulegrowth");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#rulegrowth");
         }  else if ("ERMiner".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#erminer");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#erminer");
         } else if ("TRuleGrowth".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#trulegrowth");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#trulegrowth");
         } else if ("TRuleGrowth_with_strings".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#trulegrowth");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#trulegrowth");
         } else if ("CMRules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cmrules");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cmrules");
         } else if ("CMDeo".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cmdeo");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cmdeo");
         }//Sporadic_association_rules
         else if ("Sporadic_association_rules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example19");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example19");
         }// Closed_association_rules
         else if ("Closed_association_rules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example20");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example20");
         } //IGB
         else if ("IGB".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example7");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example7");
         }// MNR
         else if ("MNR".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example21");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example21");
         } //Indirect_association_rules
         else if ("Indirect_association_rules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#indirect");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#indirect");
         } else if ("RuleGen".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#rulegen");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#rulegen");
         } else if ("TopSeqRules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#topseqrules");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#topseqrules");
         } else if ("TopKRules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#topkrules");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#topkrules");
         } else if ("TNR".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#tnr");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#tnr");
         } else if ("FPGrowth_itemsets".equals(choice) || "FPGrowth_itemsets_with_strings".equals("choice")) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#growth");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#growth");
         } else if ("Apriori_association_rules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#allassociationrules");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#allassociationrules");
         } else if ("FPGrowth_association_rules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#allassociationrules");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#allassociationrules");
         } else if ("FPGrowth_association_rules_with_lift".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#lift");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#lift");
         }else if ("CFPGrowth++_association_rules".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cfpgrowth_ar");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cfpgrowth_ar");
         } else if ("CFPGrowth++_association_rules_with_lift".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cfpgrowth_ar");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cfpgrowth_ar");
         } else if ("Apriori".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example1");
         } else if ("Apriori_with_hash_tree".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example1");
         } else if ("AprioriClose".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example2");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example2");
         } else if ("Apriori_TID".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example2");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example2");
         } else if ("Apriori_TIDClose".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example2");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example2");
         } else if ("AprioriRare".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example17");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example17");
         } else if ("AprioriInverse".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example18");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example18");
         } else if ("VME".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#erasable");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#erasable");
         } else if ("UApriori".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#uapriori");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#uapriori");
         } else if ("MSApriori".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#msapriori");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#msapriori");
         } else if ("CFPGrowth++".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cfpgrowth");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cfpgrowth");
         } else if ("Apriori_TID_bitset".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#aprioritid");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#aprioritid");
         } else if ("HMine".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#hmine");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#hmine");
         } else if ("DCI_Closed".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#dciclosed");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#dciclosed");
         } else if ("DefMe".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#defme");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#defme");
         } else if ("Charm_MFI".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#e3");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#e3");
         } else if ("dCharm_bitset".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#e2");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#e2");
         } else if ("Charm_bitset".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#e2");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#e2");
         } else if ("Eclat".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#e1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#e1");
         }  else if ("dEclat".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#e1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#e1");
         }  else if ("dEclat_bitset".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#e1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#e1");
         } else if ("Eclat_bitset".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#e1");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#e1");
         } else if ("Relim".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#c23");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#c23");
         } else if ("Zart".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#zart");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#zart");
         } else if ("Pascal".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#pascal");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#pascal");
         } else if ("LCM".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#LCM");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#LCM");
         }
         else if ("LCMFreq".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#LCMFreq");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#LCMFreq");
         }else if ("LCMMax".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#LCMFreq");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#LCMFreq");
         }
         else if ("Two-Phase".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#twophase");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#twophase");
         } else if ("HUI-Miner".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#huiminer");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#huiminer");
         }  else if ("FHM".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#fhm");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#fhm");
         } else if ("FHSAR".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#FHSAR");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#FHSAR");
         } else if ("KMeans".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example8");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example8");
         }else if ("DBScan".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#dbscan");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#dbscan");
         } else if ("OPTICS-cluster-ordering".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#optics");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#optics");
         } else if ("OPTICS-dbscan-clusters".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#optics");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#optics");
         } else if ("BisectingKMeans".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#bisecting");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#bisecting");
         }else if ("TextClusterer".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#TextClusterer");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#TextClusterer");
         }  else if ("Hierarchical_clustering".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example10");
-        } else if ("Convert_a_sequence_database_to_SPMF_format".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#convseq");
-        } else if ("Convert_a_transaction_database_to_SPMF_format".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#convtdb");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example10");
+        } else if ("Convert_a_sequence_database_to_SeqAnalysis_format".equals(choice)) {
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#convseq");
+        } else if ("Convert_a_transaction_database_to_SeqAnalysis_format".equals(choice)) {
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#convtdb");
         } else if ("Convert_sequence_database_to_transaction_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#convseqtrans");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#convseqtrans");
         } else if ("Convert_transaction_database_to_sequence_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#convtransseq");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#convtransseq");
         } 
         else if ("Generate_a_sequence_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#genseq");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#genseq");
         } else if ("Add_consecutive_timestamps_to_sequence_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#addtimestamps");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#addtimestamps");
         } else if ("Generate_a_sequence_database_with_timestamps".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#genseqt");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#genseqt");
         } else if ("Generate_a_transaction_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#gentrans");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#gentrans");
         }else if ("Fix_a_transaction_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#fixtdb");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#fixtdb");
         }else if ("Generate_utility_values_for_transaction_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#genutilvalues");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#genutilvalues");
         }
         else if ("Calculate_stats_for_a_sequence_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#statsseq");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#statsseq");
         } else if ("Calculate_stats_for_a_transaction_database".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#stattrans");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#stattrans");
         } else if ("TNS".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#tns");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#tns");
         } else if ("TNR".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#tnr");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#tnr");
         } else if ("CM-SPAM".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cmspam");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cmspam");
         } else if ("CM-SPADE".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cmspade");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cmspade");
         }else if ("CM-ClaSP".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#cmclasp");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#cmclasp");
         } else if ("MaxSP".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#maxsp");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#maxsp");
         }else if ("VMSP".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#vmsp");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#vmsp");
         } else if ("TKS".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#tks");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#tks");
         }else if ("TSP_nonClosed".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#tsp");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#tsp");
         }else if ("VGEN".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#vgen");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#vgen");
         }else if ("FEAT".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#feat");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#feat");
         }else if ("FSGP".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#fsgp");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#fsgp");
         }else if ("LAPIN".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#lapin");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#lapin");
         }else if ("Fournier08-Closed+time".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#example12");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#example12");
         }else if ("UPGrowth".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#upgrowth");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#upgrowth");
         }else if ("UPGrowth+".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#upgrowth+");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#upgrowth+");
         }else if ("IHUP".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#ihup");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#ihup");
         }else if ("FIN".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#FIN");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#FIN");
         }else if ("PrePost".equals(choice)) {
-            openWebPage("http://www.philippe-fournier-viger.com/spmf/index.php?link=documentation.php#PrePost");
+            openWebPage("http://www.philippe-fournier-viger.com/SeqAnalysis/index.php?link=documentation.php#PrePost");
         }
 	}
 
@@ -1187,7 +1069,7 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
 		    if (previousPath == null) {
 		        // If there is no previous path (first time user), 
 		        // show the files in the "examples" package of
-		        // the spmf distribution.
+		        // the SeqAnalysis distribution.
 		        URL main = MainTestApriori_saveToFile.class.getResource("MainTestApriori_saveToFile.class");
 		        if (!"file".equalsIgnoreCase(main.getProtocol())) {
 		            path = null;
@@ -1195,7 +1077,7 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
 		            path = new File(main.getPath());
 		        }
 		    } else {
-		        // Otherwise, the user used SPMF before, so
+		        // Otherwise, the user used SeqAnalysis before, so
 		        // we show the last path that he used.
 		        path = new File(previousPath);
 		    }
@@ -1236,7 +1118,7 @@ public class MainWindow extends JFrame implements ThreadCompleteListener, Uncaug
 		    String previousPath = PathsManager.getInstance().getOutputFilePath();
 		    // If there is no previous path (first time user), 
 		    // show the files in the "examples" package of
-		    // the spmf distribution.
+		    // the SeqAnalysis distribution.
 		    if (previousPath == null) {
 		        URL main = MainTestApriori_saveToFile.class.getResource("MainTestApriori_saveToFile.class");
 		        if (!"file".equalsIgnoreCase(main.getProtocol())) {

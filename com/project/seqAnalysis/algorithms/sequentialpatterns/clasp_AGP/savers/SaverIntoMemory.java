@@ -1,7 +1,11 @@
 package com.project.seqAnalysis.algorithms.sequentialpatterns.clasp_AGP.savers;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
+import com.project.seqAnalysis.algorithms.GraphOutput;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clasp_AGP.dataStructures.Sequences;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.clasp_AGP.dataStructures.patterns.Pattern;
+
+import java.util.List;
 
 /**
  * This is an implementation of a class implementing the Saver interface. By 
@@ -65,5 +69,15 @@ public class SaverIntoMemory implements Saver{
     public String print() {
         return patterns.toStringToFile(outputSequenceIdentifiers);
     }
-    
+
+    @Override
+    public void insert(AbstractAlogrithamClass algoCloSpan) {
+
+    }
+
+    @Override
+    public List<GraphOutput> selectMethod(List<GraphOutput> graphOutputs) {
+        return null;
+    }
+
 }

@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import com.project.seqAnalysis.algorithms.AbstractAlogrithamClass;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.database.SequenceDatabase;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.dataStructures.patterns.Pattern;
 import com.project.seqAnalysis.algorithms.sequentialpatterns.spade_spam_AGP.savers.Saver;
@@ -40,7 +41,7 @@ import com.project.seqAnalysis.tools.MemoryLogger;
  * 
  * @author Antonio Gomariz Peñalver 
  */
-public class AlgoSPAM_AGP {
+public class AlgoSPAM_AGP extends AbstractAlogrithamClass {
 
     /**
      * the minimum support threshold
@@ -195,10 +196,6 @@ public class AlgoSPAM_AGP {
         return sb.toString();
     }
 
-    public int getNumberOfFrequentPatterns() {
-        return numberOfFrequentPatterns;
-    }
-
     /**
      * It gets the time spent by the algoritm in its execution.
      * @return the total time
@@ -212,9 +209,6 @@ public class AlgoSPAM_AGP {
      * sequences where a pattern has to appear
      * @return the minimum support
      */
-    public double getMinSupRelative() {
-        return minSupAbsolute;
-    }
 
     /**
      * It clears all the attributes of AlgoSpam class
